@@ -1,3 +1,5 @@
+library(tidyverse)
+library(sf)
 jail<-read.csv("NYPD_Arrest_Data__Year_to_Date_.csv")
 nyc_shp<-st_read("ZIP_CODE_040114.shp")
 test<-st_as_sf(x = jail, coords = c("Longitude", "Latitude"), crs = st_crs(nyc_shp))
