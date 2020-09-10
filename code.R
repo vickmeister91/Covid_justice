@@ -1,7 +1,7 @@
 library(tidyverse)
 library(sf)
 jail<-read.csv("NYPD_Arrest_Data__Year_to_Date_.csv")
-nyc_shp<-st_read("ZIP_CODE_040114.shp")
+nyc_shp<-st_read("NYC zips shape")
 test<-st_as_sf(x = jail, coords = c("Longitude", "Latitude"), crs = st_crs(nyc_shp))
 test2<-st_join(test, nyc_shp, join=st_contains, left=TRUE)
 sum(is.na(test2$ZIPCODE))
